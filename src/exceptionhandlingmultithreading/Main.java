@@ -17,10 +17,14 @@ public class Main {
             System.out.println("-------Enter expression in format: a + b (Spaces must between each operator and operand)-------");
             a = sc.nextDouble();
             op = sc.next().trim().charAt(0);
-            if(op == ' ') throw new IOException("Invalid Input format");
             b = sc.nextDouble();
+            Thread t1 = new Thread(new Expression(a, b, op));
+            t1.start();
+            t1.join();
+            System.out.println();
+            if(op == ' ') throw new IOException("Invalid Input format");
             Calculator calculator = new Calculator();
-            System.out.print(a + " " + op + " " + b + " = ");
+            System.out.print("Executing from thread: " + Thread.currentThread().getName() + " ---> " + a + " " + op + " " + b + " = ");
             calculator.calculate(a,b,op);
         } catch (IOException e) {
             System.out.println(e.getMessage());

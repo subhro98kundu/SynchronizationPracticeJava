@@ -38,4 +38,25 @@ public class Calculator {
         }
         System.out.println(ans);
     }
+    public void calculate(double a,
+                          double b,
+                          OperatorEnum operator) throws ArithmeticException, OperationNotAllowedException {
+        double ans;
+        switch(operator){
+            case ADD:
+                ans = add(a,b);
+                break;
+            case SUBSTRACT:
+                ans = substract(a,b);
+                break;
+            case MULTIPLY:
+                ans = multiply(a,b);
+                break;
+            case DIVIDE:
+                ans = divide(a,b);
+                break;
+            default: throw new OperationNotAllowedException("Operation not allowed");
+        }
+        System.out.println(ans);
+    }
 }
