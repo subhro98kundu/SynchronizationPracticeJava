@@ -1,3 +1,5 @@
+import exceptions.OperationNotAllowedException;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Adder implements Runnable {
